@@ -1,54 +1,97 @@
-# Stoplight Exercise
+// (function() {
+  'use strict';
 
-As always, fork and clone this repository.
+  //GREEN BUTTON CONTROL
 
-![](stoplight.gif)
+  const goButton = document.getElementById("goButton");
+  const goLight = document.getElementById("goLight");
 
-## Part 1
+  function turnGreen(event) {
 
-Add DOM event listeners and handlers to toggle the on/off state of three bulbs.
+    if (goLight.className === `bulb`) {
+      goLight.className = `bulb go`;
+    } else if (goLight.className === `bulb go`) {
+      goLight.className = `bulb`;
+    };//if stat.
+    
+  };//func.
 
-- When a user clicks on the "Stop" button, toggle the [stop bulb's color][stop-color].
-- When a user clicks on the "Slow" button, toggle the [slow bulb's color][slow-color].
-- When a user clicks on the "Go" button, toggle the [go bulb's color][go-color].
+  goButton.addEventListener("click", turnGreen);
 
-**TIP**: All three bulbs can be on/off independently of one another.
+  //--------------------------------------------------
+  //YELLOW BUTTON CONTROL
 
-### Resources
+  const slowButton = document.getElementById("slowButton");
+  const slowLight = document.getElementById("slowLight");
+  
+  function turnYellow(event) {
+    
+    if (slowLight.className === 'bulb') {
+      slowLight.className = `bulb slow`;
+    } else if (slowLight.className === `bulb slow`) {
+      slowLight.className = `bulb`
+    };//if stat.
 
-- [MDN - `Document.querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
-- [MDN - `EventTarget.addEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
-- [MDN - `click`](https://developer.mozilla.org/en-US/docs/Web/Events/click)
-- [MDN -  `Element.classList`](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
+  };
 
-## Part 2
+  slowButton.addEventListener("click", turnYellow);
+  
+  //--------------------------------------------------
+  //RED BUTTON CONTROL
+  const stopButton = document.getElementById("stopButton");
+  const stopLight = document.getElementById("stopLight");
+  
+  function turnRed(event) {
+    
+    if (stopLight.className === 'bulb') {
+      stopLight.className = `bulb stop`;
+    } else if (stopLight.className === `bulb stop`) {
+      stopLight.className = `bulb`
+    };//if stat.
 
-Add new DOM event listeners and handlers to log the mouse state of each button.
+  };
+  
+  stopButton.addEventListener("click", turnRed);
 
-- When a user's mouse enters a button, log `"Entered <textContent> button"` to the console.
-- When a user's mouse leaves a button, log `"Left <textContent> button"` to the console.
+  //--------------------------------------------------
 
-**TIP:** Each event type will need a separate event listener.
+  function enterStop(event) {
+    console.log(`Entered Stop button`);
+  };
 
-### Resources
+  stopButton.addEventListener(`mouseover`, enterStop);
 
-- [MDN - `mouseenter`](https://developer.mozilla.org/en-US/docs/Web/Events/mouseenter)
-- [MDN - `mouseleave`](https://developer.mozilla.org/en-US/docs/Web/Events/mouseleave)
-- [MDN - `Event.target`](https://developer.mozilla.org/en-US/docs/Web/API/Event/target)
+  function leftStop(event) {
+    console.log(`Left Stop button`);
+  };
 
-## Bonus
+  stopButton.addEventListener(`mouseleave`, leftStop);
 
-Add **one** DOM event listener and **one** handler to log the state of each bulb.
+ //--------------------------------------------------
 
-- When a user clicks a button that just turned on, log`"<textContent> bulb on"` to the console.
-- When a user clicks a button that just turned off, log`"<textContent> bulb off"` to the console.
+ function enterSlow(event) {
+  console.log(`Entered Slow button`);
+ };
 
-**TIP:** A click on only a button should cause a message to be logged to the console.
+ slowButton.addEventListener(`mouseover`, enterSlow);
 
-### Resources
+ function leftSlow(event) {
+  console.log(`Left Slow button`);
+ }
 
-- [How JavaScript Event Delegation Works](https://davidwalsh.name/event-delegate)
+ slowButton.addEventListener(`mouseleave`, leftSlow);
 
-[stop-color]: https://github.com/gSchool/stoplight-event-exercise/blob/master/index.css#L39
-[slow-color]: https://github.com/gSchool/stoplight-event-exercise/blob/master/index.css#L43
-[go-color]: https://github.com/gSchool/stoplight-event-exercise/blob/master/index.css#L47
+ //--------------------------------------------------
+
+
+
+  //--------------------------------------------------
+
+
+
+
+
+
+  
+  // YOUR CODE HERE
+// })();
